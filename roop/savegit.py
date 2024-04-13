@@ -1,5 +1,5 @@
 import os
-os.chdir('/output')
+os.chdir('../output')
 import shutil
 shutil.make_archive('HEINZO', 'zip', '/content/downloadroop')
 
