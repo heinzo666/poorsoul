@@ -1,14 +1,16 @@
 tgl = datetime.now().strftime("%y%m%d_%H%M%S%f")
-os.chdir('..')
-cp /content/HEINZO.rar /content/downloadroop
+os.chdir('../downloadroop')
+import shutil
+shutil.make_archive(Heinzo, 'zip', /content/downloadroop)
+shutil.copyfile('/content/HEINZO.zip', '/content/downloadroop/Heinzo.zip')
 
-backupname = "/content/downloadroop/HEINZO.rar"
+backupname = "/content/downloadroop/HEINZO.zip"
 
-backup = ('/content/downloadroop/D' + str(tgl) + '.rar')
+backup = ('/content/downloadroop/D' + str(tgl) + '.zip')
 
 os.rename(backupname, backup)
 
-os.chdir('/content/downloadroop')
+
 repo = Repo('/content/downloadroop')
 repo.git.add('-A')
 repo.git.commit('-m', commit)
@@ -18,6 +20,4 @@ repo.git.remote.add.origin('https://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@git
 
 repo.git.push.origin.main
 
-os.chdir('..')
-
-cd poorsoul
+os.chdir('../poorsoul')
