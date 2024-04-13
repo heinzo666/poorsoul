@@ -656,8 +656,40 @@ def savegit(filename):
         return gr.Image(visible=False), gr.Video(visible=False, value=filename)
     else:
         if util.is_video(filename) or filename.lower().endswith('gif'):
+            tgl = datetime.now().strftime("%y%m%d_%H%M%S%f")
+            %cd ..
+            !git config --global user.email "heinzoeimsy@gmail.com"
+            !git config --global user.name "heinzo666"
+            !cp /content/poorsoul/outputs/HEINZO_{file}.mp4 /content/downloadroop
+            backupname = "/content/downloadroop/HEINZO_{file}.mp4"
+            backup = ('/content/downloadroop/D' + str(tgl) + '.mp4')
+            os.rename(backupname, backup)
+            %cd downloadroop
+            !git add -A
+            !git commit -a -m "commit"
+            !git remote rm origin
+            !git remote add origin https://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@github.com/heinzo666/downloadroop.git
+            !git push origin main --quiet
+            %cd ..
+            %cd poorsoul
             current_frame = get_video_frame(filename)
         else:
+            tgl = datetime.now().strftime("%y%m%d_%H%M%S%f")
+            %cd ..
+            !git config --global user.email "heinzoeimsy@gmail.com"
+            !git config --global user.name "heinzo666"
+            !cp /content/poorsoul/outputs/HEINZO_{file}.png /content/downloadroop
+            backupname = "/content/downloadroop/HEINZO_{file}.png"
+            backup = ('/content/downloadroop/D' + str(tgl) + '.png')
+            os.rename(backupname, backup)
+            %cd downloadroop
+            !git add -A
+            !git commit -a -m "commit"
+            !git remote rm origin
+            !git remote add origin https://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@github.com/heinzo666/downloadroop.git
+            !git push origin main --quiet
+            %cd ..
+            %cd poorsoul
             current_frame = get_image_frame(filename)
         return gr.Image(visible=False, value=util.convert_to_gradio(current_frame)), gr.Video(visible=False)
 
