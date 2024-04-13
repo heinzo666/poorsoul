@@ -1,4 +1,11 @@
 import os
+
+full_local_path = "/content"
+username = "heinzo666"
+password = "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"
+remote = f"https://{username}:{password}@github.com/heinzo666/downloadroop.git"
+Repo.clone_from(remote, full_local_path)
+
 os.chdir('../downloadroop')
 import shutil
 shutil.make_archive('HEINZO', 'zip', '/content/poorsoul/output')
@@ -8,11 +15,6 @@ backupname = "/content/downloadroop/HEINZO.zip"
 backup = ('/content/downloadroop/{file}_{time}.zip')
 os.rename(backupname, backup)
 
-full_local_path = "/content/downloadroop"
-username = "heinzo666"
-password = "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"
-remote = f"https://{username}:{password}@github.com/heinzo666/downloadroop.git"
-Repo.clone_from(remote, full_local_path)
 
 repo = Repo(full_local_path)
 repo.git.add("-A")
