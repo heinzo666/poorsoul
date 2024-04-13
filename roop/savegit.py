@@ -1,4 +1,3 @@
-tgl = datetime.now().strftime("%y%m%d_%H%M%S%f")
 os.chdir('../downloadroop')
 import shutil
 shutil.make_archive(HEINZO, 'zip', '/content/downloadroop')
@@ -6,7 +5,7 @@ shutil.copyfile('/content/HEINZO.zip', '/content/downloadroop/Heinzo.zip')
 
 backupname = "/content/downloadroop/HEINZO.zip"
 
-backup = ('/content/downloadroop/D' + str(tgl) + '.zip')
+backup = ('/content/downloadroop/D.zip')
 
 os.rename(backupname, backup)
 
