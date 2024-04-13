@@ -1,11 +1,11 @@
 import os
-os.chdir('/outputs')
+os.chdir('/output')
 import shutil
 shutil.make_archive('HEINZO', 'zip', '/content/downloadroop')
 
 backupname = "/content/downloadroop/HEINZO.zip"
 
-backup = ('/content/downloadroop/D.zip')
+backup = ('/content/downloadroop/{file}_{time}.zip')
 
 os.rename(backupname, backup)
 
