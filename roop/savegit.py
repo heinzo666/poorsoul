@@ -1,7 +1,7 @@
 import os
-os.chdir('/content/poorsoul/output')
+os.chdir('../downloadroop')
 import shutil
-shutil.make_archive('HEINZO', 'zip', '/content/downloadroop')
+shutil.make_archive('HEINZO', 'zip', '/content/poorsoul/output')
 
 backupname = "/content/downloadroop/HEINZO.zip"
 
