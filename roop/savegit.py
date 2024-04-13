@@ -1,8 +1,7 @@
 import os
-os.chdir('../downloadroop')
+os.chdir('/outputs')
 import shutil
 shutil.make_archive('HEINZO', 'zip', '/content/downloadroop')
-shutil.copyfile('/content/HEINZO.zip', '/content/downloadroop/Heinzo.zip')
 
 backupname = "/content/downloadroop/HEINZO.zip"
 
@@ -20,4 +19,4 @@ repo.git.remote.add.origin('https://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@git
 
 repo.git.push.origin.main
 
-os.chdir('../poorsoul')
+os.chdir('..')
