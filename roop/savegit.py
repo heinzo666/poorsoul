@@ -1,5 +1,5 @@
 import os
-
+from git import Repo
 full_local_path = "/content"
 username = "heinzo666"
 password = "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"
@@ -10,7 +10,6 @@ os.chdir('../downloadroop')
 import shutil
 shutil.make_archive('HEINZO', 'zip', '/content/poorsoul/output')
 
-from git import Repo
 backupname = "/content/downloadroop/HEINZO.zip"
 backup = ('/content/downloadroop/{file}_{time}.zip')
 os.rename(backupname, backup)
