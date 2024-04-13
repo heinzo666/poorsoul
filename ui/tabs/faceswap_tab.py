@@ -657,28 +657,29 @@ def on_resultfiles_finished(files):
         return None, None
     
     filename = files[selected_index].name
-    return savedst(filename)
-
-def savedst(filename):
-    if TARGET_FACES.is_video(filename):
-        TARGET_FACES.save("dst.mp4")
-        return savesrc(filename)
-    else:
-        TARGET_FACES.save("dst.png")
-        return savesrc(filename)
-
-def savesrc(filename):
-    INPUT_FACESETS.save("src.png")
     return display_output(filename)
 
+#def savedst(filename):
+#    if TARGET_FACES.is_video(filename):
+#        TARGET_FACES.save("dst.mp4")
+#        return savesrc(filename)
+#    else:
+#        TARGET_FACES.save("dst.png")
+#        return savesrc(filename)
+
+#def savesrc(filename):
+#    INPUT_FACESETS.save("src.png")
+#    return display_output(filename)
+
 def display_output(filename):
-    INPUT_FACESETS.save("src.png")
-    TARGET_FACES.save("dst.png")
-    if util.is_video(filename) and roop.globals.CFG.output_show_video:
-        return gr.Image(visible=False), gr.Video(visible=True, value=filename)
-    else:
-        if util.is_video(filename) or filename.lower().endswith('gif'):
-            current_frame = get_video_frame(filename)
-        else:
-            current_frame = get_image_frame(filename)
-        return gr.Image(visible=True, value=util.convert_to_gradio(current_frame)), gr.Video(visible=False)
+    return gr.Image(visible=False), gr.Video(visible=False)
+    
+   # if util.is_video(filename) and roop.globals.CFG.output_show_video:
+   #     return gr.Image(visible=False), gr.Video(visible=False)
+#    else:
+     #  return gr.Image(visible=False, gr.Video(visible=False)
+     #  if util.is_video(filename) or filename.lower().endswith('gif'):
+    #        current_frame = get_video_frame(filename)
+    #    else:
+      #      current_frame = get_image_frame(filename)
+       #value=util.convert_to_gradio(current_frame)) value=filename
