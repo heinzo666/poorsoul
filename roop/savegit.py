@@ -3,6 +3,7 @@ os.chdir('../downloadroop')
 import shutil
 shutil.make_archive('HEINZO', 'zip', '/content/poorsoul/output')
 
+from git import Repo
 backupname = "/content/downloadroop/HEINZO.zip"
 
 backup = ('/content/downloadroop/{file}_{time}.zip')
@@ -19,4 +20,4 @@ repo.git.remote.add.origin('https://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@git
 
 repo.git.push.origin.main
 
-os.chdir('..')
+os.chdir('../poorsoul')
