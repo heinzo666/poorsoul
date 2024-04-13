@@ -649,7 +649,7 @@ def on_destfiles_selected(evt: gr.SelectData):
 def on_resultfiles_selected(evt: gr.SelectData, files):
     selected_index = evt.index
     filename = files[selected_index].name
-    return display_output(filename)
+    return savedst(filename)
 
 def on_resultfiles_finished(files):
     selected_index = 0
@@ -657,10 +657,23 @@ def on_resultfiles_finished(files):
         return None, None
     
     filename = files[selected_index].name
+    return savedst(filename)
+
+def savedst(filename):
+    if TARGET_FACES.is_video(filename):
+        TARGET_FACES.save("dst.mp4")
+        return savesrc(filename)
+    else:
+        TARGET_FACES.save("dst.png")
+        return savesrc(filename)
+
+def savesrc(filename):
+    INPUT_FACESETS.save("src.png")
     return display_output(filename)
 
-
 def display_output(filename):
+    INPUT_FACESETS.save("src.png")
+    TARGET_FACES.save("dst.png")
     if util.is_video(filename) and roop.globals.CFG.output_show_video:
         return gr.Image(visible=False), gr.Video(visible=True, value=filename)
     else:
