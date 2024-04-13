@@ -3,7 +3,7 @@ force_cpu: false
 max_threads: 3
 memory_limit: 0
 output_image_format: png
-output_template: '{file}_{time}'
+output_template: 'HEINZO_{file}_{time}'
 output_video_codec: libx264
 output_video_format: mp4
 provider: cuda
