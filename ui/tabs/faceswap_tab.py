@@ -649,7 +649,17 @@ def on_destfiles_selected(evt: gr.SelectData):
 def on_resultfiles_selected(evt: gr.SelectData, files):
     selected_index = evt.index
     filename = files[selected_index].name
-    return savedst(filename)
+    return savegit(filename)
+    
+def savegit(filename):
+    if util.is_video(filename) and roop.globals.CFG.output_show_video:
+        return gr.Image(visible=False), gr.Video(visible=False, value=filename)
+    else:
+        if util.is_video(filename) or filename.lower().endswith('gif'):
+            current_frame = get_video_frame(filename)
+        else:
+            current_frame = get_image_frame(filename)
+        return gr.Image(visible=False, value=util.convert_to_gradio(current_frame)), gr.Video(visible=False)
 
 def on_resultfiles_finished(files):
     selected_index = 0
