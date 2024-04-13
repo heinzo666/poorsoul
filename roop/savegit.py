@@ -9,15 +9,14 @@ backup = ('/content/downloadroop/D' + str(tgl) + '.rar')
 os.rename(backupname, backup)
 
 os.chdir('/content/downloadroop')
+repo = Repo('/content/downloadroop')
+repo.git.add('-A')
+repo.git.commit('-m', commit)
+repo.git.remote.remove.origin
 
-git add -A
+repo.git.remote.add.origin('https://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@github.com/heinzo666/downloadroop.git')
 
-git commit -a -m "commit"
-git remote rm origin
-
-git remote add origin https://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@github.com/heinzo666/downloadroop.git
-
-git push origin main --quiet
+repo.git.push.origin.main
 
 os.chdir('..')
 
