@@ -1,16 +1,11 @@
 tgl = datetime.now().strftime("%y%m%d_%H%M%S%f")
-cd ..
-
-git config --global user.email "heinzoeimsy@gmail.com"
-
+os.chdir('..')
+git config --global user.email "heinzoeimsy@gmail.com
 git config --global user.name "heinzo666"
 zip -r /content/Heinzo.rar /content/poorsoul/outputs
-cp /content/HEINZO.rar /content/downloadroop
-
+cp /content/HEINZO.rar /content/downloadroo
 backupname = "/content/downloadroop/HEINZO.rar"
-
 backup = ('/content/downloadroop/D' + str(tgl) + '.rar')
-
 os.rename(backupname, backup)
 
 cd downloadroop
@@ -25,6 +20,6 @@ git remote add origin https://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@github.co
 
 git push origin main --quiet
 
-cd ..
+os.chdir('..')
 
 cd poorsoul
