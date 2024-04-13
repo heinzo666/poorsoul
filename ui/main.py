@@ -9,8 +9,8 @@ import ui.globals as uii
 from ui.tabs.faceswap_tab import faceswap_tab
 #from ui.tabs.livecam_tab import livecam_tab
 #from ui.tabs.facemgr_tab import facemgr_tab
-from ui.tabs.extras_tab import extras_tab
-from ui.tabs.settings_tab import settings_tab
+#from ui.tabs.extras_tab import extras_tab
+#from ui.tabs.settings_tab import settings_tab
 
 roop.globals.keep_fps = None
 roop.globals.keep_frames = None
@@ -63,8 +63,8 @@ def run():
             faceswap_tab()
             #livecam_tab()
             #facemgr_tab()
-            extras_tab()
-            settings_tab()
+            #extras_tab()
+            #settings_tab()
 
         uii.ui_restart_server = False
         try:
