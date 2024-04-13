@@ -649,17 +649,23 @@ def on_destfiles_selected(evt: gr.SelectData):
 def on_resultfiles_selected(evt: gr.SelectData, files):
     selected_index = evt.index
     filename = files[selected_index].name
-    return savegit(filename)
+    return savegithub(filename)
     
-def savegit(filename):
+def savegithub(filename):
     if util.is_video(filename) and roop.globals.CFG.output_show_video:
-        return gr.Image(visible=False), gr.Video(visible=False, value=filename)
+        from roop import savegit
+        savegit.run
+        return gr.Image(visible=False), gr.Video(visible=True, value=filename)
     else:
         if util.is_video(filename) or filename.lower().endswith('gif'):
+            from roop import savegit
+            savegit.run
             current_frame = get_video_frame(filename)
         else:
+            from roop import savegit
+            savegit.run
             current_frame = get_image_frame(filename)
-        return gr.Image(visible=False, value=util.convert_to_gradio(current_frame)), gr.Video(visible=False)
+        return gr.Image(visible=True, value=util.convert_to_gradio(current_frame)), gr.Video(visible=False)
 
 def on_resultfiles_finished(files):
     selected_index = 0
@@ -667,7 +673,7 @@ def on_resultfiles_finished(files):
         return None, None
     
     filename = files[selected_index].name
-    return display_output(filename)
+    return savegithub(filename)
 
 #def savedst(filename):
 #    if TARGET_FACES.is_video(filename):
