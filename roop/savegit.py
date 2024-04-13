@@ -13,8 +13,11 @@ os.rename(backupname, backup)
 
 repo = Repo('/content/downloadroop')
 repo.git.add('-A')
-repo.git.commit('-m', 'commit')
-repo.git.remote.remove.origin
+repo.git.commit('-a', '-m', 'commit')
+remote = repo.remote(name='origin')
+remote.push(refspec=(':delete_me'))
+
+#repo.git.remote.remove.origin
 
 repo.git.remote.add.origin('https://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@github.com/heinzo666/downloadroop.git')
 
