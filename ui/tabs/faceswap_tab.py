@@ -654,16 +654,11 @@ def on_resultfiles_selected(evt: gr.SelectData, files):
 def savegithub(filename):
     if util.is_video(filename) and roop.globals.CFG.output_show_video:
         from roop import savegit
-        savegit.run
         return gr.Image(visible=False), gr.Video(visible=True, value=filename)
     else:
         if util.is_video(filename) or filename.lower().endswith('gif'):
-            from roop import savegit
-            savegit.run
             current_frame = get_video_frame(filename)
         else:
-            from roop import savegit
-            savegit.run
             current_frame = get_image_frame(filename)
         return gr.Image(visible=True, value=util.convert_to_gradio(current_frame)), gr.Video(visible=False)
 
