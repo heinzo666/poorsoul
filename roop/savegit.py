@@ -1,7 +1,7 @@
 import os
 from git import Repo
-from datetime import datetime
-tgl = datetime.datetime.now().strftime("%y%m%d_%H%M%S%f")
+import datetime as dt
+tgl = dt.datetime.now().strftime("%y%m%d_%H%M%S%f")
 os.chdir('../downloadroop')
 import shutil
 shutil.make_archive('HEINZO', 'zip', '/content/poorsoul/output')
