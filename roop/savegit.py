@@ -2,7 +2,7 @@ import os
 from git import Repo
 full_local_path = "/content/downloadroop"
 username = "heinzo666"
-password = "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"
+password = "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"
 remote = f"https://{username}:{password}@github.com/heinzo666/downloadroop.git"
 Repo.clone_from(remote, full_local_path)
 
