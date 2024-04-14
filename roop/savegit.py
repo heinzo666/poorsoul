@@ -1,12 +1,14 @@
 import os
 from git import Repo
+from datetime import datetime
+tgl = datetime.datetime.now().strftime("%y%m%d_%H%M%S%f")
 os.chdir('../downloadroop')
 import shutil
 shutil.make_archive('HEINZO', 'zip', '/content/poorsoul/output')
 full_local_path = "/content/downloadroop"
 
 backupname = "/content/downloadroop/HEINZO.zip"
-backup = ('/content/downloadroop/DF.zip')
+backup = ('/content/downloadroop/' + {tgl} + '.zip')
 os.rename(backupname, backup)
 
 
