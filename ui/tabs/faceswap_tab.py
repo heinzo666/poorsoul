@@ -43,6 +43,9 @@ def faceswap_tab():
         with gr.Row(variant='panel'):
             with gr.Column(scale=2):
                 with gr.Row():
+                    with gr.Row(variant='panel'):
+                        bt_srcfiles = gr.Files(label='Source File(s) FACE', file_count="multiple", file_types=["image", ".fsz"], elem_id='filelist', height=233)
+                        bt_destfiles = gr.Files(label='Target File(s) BODY', file_count="multiple", file_types=["image", "video"], elem_id='filelist', height=233)
                     with gr.Column(min_width=160):
                         input_faces = gr.Gallery(label="Input faces", allow_preview=False, preview=False, height=128, object_fit="scale-down", columns=8)
                         with gr.Accordion(label="Advanced Masking", open=False):
@@ -65,9 +68,9 @@ def faceswap_tab():
                         bt_remove_selected_target_face = gr.Button("❌ Remove selected", size='sm')
                         bt_add_local = gr.Button('Add local files from', size='sm')
                         local_folder = gr.Textbox(show_label=False, placeholder="/content/", interactive=True)
-                with gr.Row(variant='panel'):
-                    bt_srcfiles = gr.Files(label='Source File(s)', file_count="multiple", file_types=["image", ".fsz"], elem_id='filelist', height=233)
-                    bt_destfiles = gr.Files(label='Target File(s)', file_count="multiple", file_types=["image", "video"], elem_id='filelist', height=233)
+                
+                    
+                    
                 with gr.Row(variant='panel'):
                     gr.Markdown('')
                     forced_fps = gr.Slider(minimum=0, maximum=120, value=0, label="Video FPS", info='Overrides detected fps if not 0', step=1.0, interactive=True, container=True)
